@@ -38,8 +38,8 @@ public class PatientMapper {
                 patient.getLastName(),
                 patient.getGender(),
                 patient.getDateOfBerth(),
-                patient.getEmail(),
-                patient.getPhoneNumber()
+                patient.getPhoneNumber(),
+                patient.getEmail()
         );
     }
 
