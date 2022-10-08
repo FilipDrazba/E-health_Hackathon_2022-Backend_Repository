@@ -26,7 +26,7 @@ public class Doctor {
 
     @OneToMany
     @JoinColumn(name = "patient")
-    private Set<Patient> petients;
+    private Set<Patient> patients;
 
     public Doctor() {
     }
