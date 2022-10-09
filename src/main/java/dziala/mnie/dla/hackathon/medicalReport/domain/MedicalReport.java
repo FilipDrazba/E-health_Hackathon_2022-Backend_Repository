@@ -42,6 +42,9 @@ public class MedicalReport {
 
     private String symptoms;
 
+    public MedicalReport(){
+    }
+
     public MedicalReport(Patient patient,
                          Float weight,
                          Float SPo2,
@@ -50,6 +53,8 @@ public class MedicalReport {
                          Integer systolicPressure,
                          Integer painInChest,
                          String symptoms) {
+        this.patientAge=patient.getAge();
+        this.patientGender=patient.getGender();
         this.date = LocalDate.now();
         this.patient = patient;//???
         this.patientAge = patient.getAge();
