@@ -7,6 +7,7 @@ import dziala.mnie.dla.hackathon.medicalReport.service.MedicalReportService;
 import dziala.mnie.dla.hackathon.patient.api.request.PatientRequest;
 import dziala.mnie.dla.hackathon.patient.api.request.UpdatePatientRequest;
 import dziala.mnie.dla.hackathon.patient.api.response.PatientResponse;
+import dziala.mnie.dla.hackathon.shared.api.request.IdRequest;
 import dziala.mnie.dla.hackathon.shared.api.response.IdResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,12 +29,12 @@ public class MedicalReportApi {
         this.medicalReportService = medicalReportService;
     }
 
-//    @PostMapping
-//    @ApiOperation("Create MedicalReport")
-//    public ResponseEntity<IdResponse> create(@RequestBody MedicalReportRequest medicalReportRequest) {
-//        IdResponse idResponse = medicalReportService.create(medicalReportRequest, );
-//        return ResponseEntity.status(HttpStatus.CREATED).body(idResponse);
-//    }
+    @PostMapping
+    @ApiOperation("Create MedicalReport")
+    public ResponseEntity<IdResponse> create(@RequestBody MedicalReportRequest medicalReportRequest) {
+        IdResponse idResponse = medicalReportService.create(medicalReportRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(idResponse);
+    }
 
     @GetMapping
     @ApiOperation("Find all MedicalReports")
@@ -45,15 +46,15 @@ public class MedicalReportApi {
     @GetMapping(path = "{id}")
     @ApiOperation("Find medicalreport by ID")
     public ResponseEntity<MedicalReportResponse> findById(@PathVariable Long id) {
-        MedicalReportResponse medicalReportResponse = MedicalReportService.findById(id);
+        MedicalReportResponse medicalReportResponse = medicalReportService.findById(id);
         return ResponseEntity.status(HttpStatus.OK).body(medicalReportResponse);
     }
 
     @PutMapping(path = "{id}")
     @ApiOperation("Update medicalreport")
     public ResponseEntity<MedicalReportResponse> update(@PathVariable Long id,
-                                                        @RequestBody UpdateMedicalReportRequest MedicalReportRequest) {
-        MedicalReportResponse medicalReportResponse = medicalReportService.update(id, MedicalReportRequest);
+                                                        @RequestBody MedicalReportRequest medicalReportRequest) {
+        MedicalReportResponse medicalReportResponse = medicalReportService.update(id, medicalReportRequest);
         return ResponseEntity.status(HttpStatus.OK).body(medicalReportResponse);
     }
 

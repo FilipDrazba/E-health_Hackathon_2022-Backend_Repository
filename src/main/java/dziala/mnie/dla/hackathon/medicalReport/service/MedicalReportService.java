@@ -35,9 +35,8 @@ public class MedicalReportService {
         this.medicalReportMapper = medicalReportMapper;
     }
 
-    public IdResponse create(MedicalReportRequest medicalReportRequest,
-                             IdRequest patientIdRequest) {
-        Patient patient = patientService.findPatientById(patientIdRequest.id());
+    public IdResponse create(MedicalReportRequest medicalReportRequest) {
+        Patient patient = patientService.findPatientById(medicalReportRequest.patientId());
 
         return medicalReportMapper.toIdResponse(medicalReportRepository.save(
                 medicalReportMapper.toMedicalReport(medicalReportRequest, patient)));
@@ -61,6 +60,11 @@ public class MedicalReportService {
         MedicalReport medicalReport = findMedicalReportById(id);
         medicalReportRepository.save(medicalReportMapper.toMedicalReport(medicalReport,medicalReportRequest));
         return medicalReportMapper.toMedicalReportResponse(medicalReport);
+    }
+
+    public void delete(Long id) {
+        MedicalReport medicalReport = findMedicalReportById(id);
+        medicalReportRepository.deleteById(medicalReport.getId());
     }
 
 }
