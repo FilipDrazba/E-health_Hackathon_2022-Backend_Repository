@@ -38,6 +38,17 @@ public class MedicalReportService {
     public IdResponse create(MedicalReportRequest medicalReportRequest) {
         Patient patient = patientService.findPatientById(medicalReportRequest.patientId());
 
+        if(medicalReportRequest.pulse()>100||
+        medicalReportRequest.pulse()<40||
+        medicalReportRequest.SPo2()<90||
+        medicalReportRequest.systolicPressure()<100||
+        medicalReportRequest.systolicPressure()>140||
+        medicalReportRequest.diastolicPressure()<60||
+        medicalReportRequest.diastolicPressure()>90
+        ){
+            patient.setAlert(true);
+        }
+
         return medicalReportMapper.toIdResponse(medicalReportRepository.save(
                 medicalReportMapper.toMedicalReport(medicalReportRequest, patient)));
     }

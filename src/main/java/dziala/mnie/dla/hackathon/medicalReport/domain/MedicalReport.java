@@ -22,10 +22,8 @@ public class MedicalReport {
     @ManyToOne
     private Patient patient;
 
-    @Transient
     private Integer patientAge;
 
-    @Transient
     private Gender patientGender;
 
     private Float weight;
@@ -65,7 +63,6 @@ public class MedicalReport {
         this.diastolicPressure = diastolicPressure;
         this.systolicPressure = systolicPressure;
         this.painInChest = painInChest;
-        this.symptoms = symptoms;
     }
 
     public Long getId() {

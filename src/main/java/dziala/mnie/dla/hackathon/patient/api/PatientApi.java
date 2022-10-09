@@ -1,5 +1,6 @@
 package dziala.mnie.dla.hackathon.patient.api;
 
+import dziala.mnie.dla.hackathon.medicalReport.api.request.MedicalReportRequest;
 import dziala.mnie.dla.hackathon.patient.api.request.PatientRequest;
 import dziala.mnie.dla.hackathon.patient.api.request.UpdatePatientRequest;
 import dziala.mnie.dla.hackathon.patient.api.response.PatientResponse;

@@ -39,7 +39,8 @@ public class PatientMapper {
                 patient.getGender(),
                 patient.getDateOfBerth(),
                 patient.getPhoneNumber(),
-                patient.getEmail()
+                patient.getEmail(),
+                patient.getAlert()
         );
     }
 

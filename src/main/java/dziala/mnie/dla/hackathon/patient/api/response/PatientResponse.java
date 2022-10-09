@@ -12,5 +12,6 @@ public record PatientResponse(String className,
                               Gender gender,
                               LocalDate dateOfBirth,
                               String phoneNumber,
-                              String email) {
+                              String email,
+                              Boolean alert) {
 }

@@ -1,5 +1,8 @@
 package dziala.mnie.dla.hackathon.patient.service;
 
+import dziala.mnie.dla.hackathon.medicalReport.api.request.MedicalReportRequest;
+import dziala.mnie.dla.hackathon.medicalReport.repository.MedicalReportRepository;
+import dziala.mnie.dla.hackathon.medicalReport.support.MedicalReportMapper;
 import dziala.mnie.dla.hackathon.patient.api.request.PatientRequest;
 import dziala.mnie.dla.hackathon.patient.api.request.UpdatePatientRequest;
 import dziala.mnie.dla.hackathon.patient.api.response.PatientResponse;
@@ -19,14 +22,20 @@ import java.util.stream.Collectors;
 public class PatientService {
 
     private final PatientRepository patientRepository;
+    private final MedicalReportRepository medicalReportRepository;
 
     private final PatientMapper patientMapper;
+    private final MedicalReportMapper medicalReportMapper;
 
     @Autowired
     public PatientService(PatientRepository patientRepository,
-                          PatientMapper patientMapper) {
+                          MedicalReportRepository medicalReportRepository,
+                          PatientMapper patientMapper,
+                          MedicalReportMapper medicalReportMapper) {
         this.patientRepository = patientRepository;
+        this.medicalReportRepository=medicalReportRepository;
         this.patientMapper = patientMapper;
+        this.medicalReportMapper = medicalReportMapper;
     }
 
     public IdResponse create(PatientRequest patientRequest) {

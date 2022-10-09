@@ -38,6 +38,8 @@ public class Patient {
             nullable = false)
     private String email;
 
+    private Boolean alert;
+
     @Transient
     private LocalDate dateOfBerth;
 
@@ -56,8 +58,9 @@ public class Patient {
         this.pesel = pesel;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phoneNumber=phoneNumber;
-        this.email=email;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.alert = false;
     }
 
     public Long getId() {
@@ -140,4 +143,11 @@ public class Patient {
         return Integer.parseInt(pesel.substring(9, 10)) % 2 == 0 ? Gender.FEMALE : Gender.MALE;
     }
 
+    public Boolean getAlert(){
+        return alert;
+    }
+
+    public void setAlert(Boolean alert) {
+        this.alert = alert;
+    }
 }
