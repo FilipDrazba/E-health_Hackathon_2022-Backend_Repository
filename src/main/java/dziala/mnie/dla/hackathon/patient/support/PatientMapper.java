@@ -43,7 +43,7 @@ public class PatientMapper {
         );
     }
 
-    public IdResponse toIdResponse(Patient patient){
+    public IdResponse toIdResponse(Patient patient) {
         return new IdResponse(patient.getId());
     }
 

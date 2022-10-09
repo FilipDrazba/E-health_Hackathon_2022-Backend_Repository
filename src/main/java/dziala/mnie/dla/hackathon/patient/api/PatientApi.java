@@ -1,6 +1,5 @@
 package dziala.mnie.dla.hackathon.patient.api;
 
-
 import dziala.mnie.dla.hackathon.patient.api.request.PatientRequest;
 import dziala.mnie.dla.hackathon.patient.api.request.UpdatePatientRequest;
 import dziala.mnie.dla.hackathon.patient.api.response.PatientResponse;
@@ -55,15 +54,6 @@ class PatientApi {
         PatientResponse patientResponse = patientService.update(id, updatePatientRequest);
         return ResponseEntity.status(HttpStatus.OK).body(patientResponse);
     }
-
-//    @PutMapping(path = "{patientId}/addLaboratoryExamination")
-//    public ResponseEntity<Void> addLaboratoryExamination(@PathVariable Long patientId,
-//                                                         @RequestBody LaboratoryExaminationRequestWithoutPatientId
-//                                                                 laboratoryExaminationRequestWithoutPatientId) {
-//        patientService.addLaboratoryExamination(patientId,
-//                laboratoryExaminationRequestWithoutPatientId.researchProjectId());
-//        return ResponseEntity.status(HttpStatus.OK).build();
-//    }
 
     @DeleteMapping(path = "{id}")
     @ApiOperation("Delete patient")
